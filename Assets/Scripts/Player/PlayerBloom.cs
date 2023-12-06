@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerBloom : PlayableCharacter
 {
-    private DamageableConcrete damageableConcrete;
+    private PlayableCharacter playableCharacter;
     Rigidbody2D rb;
 
 
@@ -13,7 +13,7 @@ public class PlayerBloom : PlayableCharacter
         rb = GetComponent<Rigidbody2D>();
 
         base.Start();
-        damageableConcrete = GetComponent<DamageableConcrete>();
+        playableCharacter = GetComponent<PlayableCharacter>();
     }
 
     protected override void Update()
@@ -41,12 +41,12 @@ public class PlayerBloom : PlayableCharacter
 
     public override void TakeDamage(int howMuch)
     {
-        damageableConcrete.TakeDamage(howMuch);
+        playableCharacter.TakeDamage(howMuch);
     }
 
     public override void Die()
     {
-        damageableConcrete.Die();
+        playableCharacter.Die();
     }
 }
 
