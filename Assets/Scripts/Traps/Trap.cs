@@ -1,35 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public abstract class Trap : MonoBehaviour, IDamageable
 {
-    [SerializeField] LayerMask whatIDamage;
+    [SerializeField] List<PlayableCharacter> whatIDamage;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         
     }
 
-    void ApplyDamage(IDamageable damagable)
-    {
+    protected abstract void ApplyDamage(IDamageable damagable);
 
-    }
+    public abstract void TakeDamage(int HowMuch);
 
-    public void TakeDamage(int HowMuch)
-    {
 
-    }
-    
-    public void Die()
-    {
-
-    }
+    public abstract void Die();
 }

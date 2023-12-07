@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBloom : PlayableCharacter
+public class PlayerFlora : PlayableCharacter
 {
     private PlayableCharacter playableCharacter;
     Rigidbody2D rb;
