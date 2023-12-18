@@ -4,32 +4,42 @@ using UnityEngine;
 
 public class IceTrap : Trap
 {
-    private Trap trap;
-    // Start is called before the first frame update
+    private int trapHealth = 100;
+
     protected override void Start()
     {
-        
+        base.Start();
     }
 
-    // Update is called once per frame
     protected override void Update()
     {
-        
+        base.Update();
     }
-
-    protected override void ApplyDamage(IDamageable damagable)
-    {
-
-    }
-
 
     public override void TakeDamage(int howMuch)
     {
-        trap.TakeDamage(howMuch);
+        trapHealth -= howMuch;
+
+        if (trapHealth <= 0)
+        {
+            Die();
+        }
+    }
+    protected override void ApplyDamage(IDamageable damagable)
+    {
+        Collider2D collider2D = damagable as Collider2D;
+        if (collider2D != null)
+        {
+            if (collider2D.CompareTag("Bloom"))
+            {
+                damagable.TakeDamage(10);
+            }
+          
+        }
     }
 
     public override void Die()
     {
-        trap.Die();
+        Destroy(gameObject);
     }
 }

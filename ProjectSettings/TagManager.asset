@@ -3,12 +3,20 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - IceTrap
+  - Bloom
+  - Stella
+  - Flora
+  - Fire
+  - Sun
+  - Nature
+  - voidTrap
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - BackGround
   - Water
   - UI
   - 
@@ -38,6 +46,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BG
+    uniqueID: 3674840269
+    locked: 0
+  - name: Players
+    uniqueID: 3887570961
+    locked: 0
+  - name: traps
+    uniqueID: 2899235511
+    locked: 0
+  - name: 'layer '
+    uniqueID: 3294999127
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

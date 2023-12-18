@@ -4,22 +4,30 @@ using UnityEngine;
 
 public class PlayerStella : PlayableCharacter
 {
-    private PlayableCharacter playableCharacter;
-    Rigidbody2D rb;
+    private Rigidbody2D rb;
 
+    [SerializeField] private SunPower sunPower;
 
     protected override void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
         base.Start();
-        playableCharacter = GetComponent<PlayableCharacter>();
+        sunPower = GetComponent<SunPower>();
+        currentHP = 10;
     }
 
     protected override void Update()
     {
         base.Update();
         Movement();
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("voidTrap"))
+        {
+            TakeDamage(10);
+        }
     }
 
     protected override void Movement()
@@ -32,20 +40,29 @@ public class PlayerStella : PlayableCharacter
 
     protected override void ApplyDamage(IDamageable damagable)
     {
+        if (damagable is Collider2D collider2D && collider2D.CompareTag("voidTrap"))
+        {
+            damagable.TakeDamage(10);
+        }
     }
 
     protected override void SpecialAbility()
     {
+       sunPower.SpecialAbility();
     }
 
     public override void TakeDamage(int howMuch)
     {
-        playableCharacter.TakeDamage(howMuch);
+        currentHP -= howMuch;
+        if (currentHP <= 0)
+        {
+            Die();
+        }
     }
 
     public override void Die()
     {
-        playableCharacter.Die();
+        gameObject.SetActive(false);
     }
-}
 
+   }

@@ -6,6 +6,7 @@ using UnityEngine;
 public abstract class Trap : MonoBehaviour, IDamageable
 {
     [SerializeField] List<PlayableCharacter> whatIDamage;
+ 
 
     // Start is called before the first frame update
     protected virtual void Start()
