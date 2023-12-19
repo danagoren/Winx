@@ -24,7 +24,7 @@ public class PlayerFlora : PlayableCharacter
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("IceTrap"))
+        if ((other.gameObject.CompareTag("VoidTrap")) || (other.gameObject.CompareTag("IceTrap")))
         {
             TakeDamage(10);
         }

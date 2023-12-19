@@ -24,7 +24,7 @@ public class PlayerStella : PlayableCharacter
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("voidTrap"))
+        if ((other.gameObject.CompareTag("IceTrap")) || (other.gameObject.CompareTag("TreeTrap")))
         {
             TakeDamage(10);
         }
@@ -40,7 +40,7 @@ public class PlayerStella : PlayableCharacter
 
     protected override void ApplyDamage(IDamageable damagable)
     {
-        if (damagable is Collider2D collider2D && collider2D.CompareTag("voidTrap"))
+        if (damagable is Collider2D collider2D && collider2D.CompareTag("VoidTrap"))
         {
             damagable.TakeDamage(10);
         }

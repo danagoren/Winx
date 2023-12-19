@@ -31,7 +31,7 @@ public class SunPower : MonoBehaviour
                 
             }
 
-            ApplyDamageByTag("voidTrap", 10);
+            ApplyDamageByTag("VoidTrap", 10);
         }
     }
 

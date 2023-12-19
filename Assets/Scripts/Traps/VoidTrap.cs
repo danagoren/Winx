@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class VoidTrap : Trap
 {
-    private int trapHealth = 100;
+    private int trapHealth = 1;
 
     protected override void Start()
     {

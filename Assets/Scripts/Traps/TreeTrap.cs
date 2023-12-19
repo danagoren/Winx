@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IceTrap : Trap
+public class TreeTrap : Trap
 {
     private int trapHealth = 1;
 
@@ -30,11 +30,11 @@ public class IceTrap : Trap
         Collider2D collider2D = damagable as Collider2D;
         if (collider2D != null)
         {
-            if (collider2D.CompareTag("Bloom"))
+
+            if (collider2D.CompareTag("Flora"))
             {
                 damagable.TakeDamage(10);
             }
-          
         }
     }
 

@@ -31,7 +31,7 @@ public class NaturePower : MonoBehaviour
 
             }
 
-            ApplyDamageByTag("IceTrap", 10);
+            ApplyDamageByTag("TreeTrap", 10);
         }
     }
 

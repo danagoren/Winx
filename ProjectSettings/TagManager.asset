@@ -11,8 +11,8 @@ TagManager:
   - Fire
   - Sun
   - Nature
-  - voidTrap
   - TreeTrap
+  - VoidTrap
   layers:
   - Default
   - TransparentFX
