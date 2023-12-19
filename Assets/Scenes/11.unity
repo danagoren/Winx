@@ -985,8 +985,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631c857119803044b6e3310cbcef13e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OtherPlayer: {fileID: 442093741}
-  ActivePlayer: {fileID: 895416662}
+  Bloom: {fileID: 1019991478}
+  Flora: {fileID: 895416662}
+  Stella: {fileID: 442093741}
 --- !u!114 &442093748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6296,8 +6297,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1019991479}
-  - {fileID: 442093742}
   - {fileID: 895416663}
+  - {fileID: 442093742}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6676,8 +6677,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631c857119803044b6e3310cbcef13e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OtherPlayer: {fileID: 895416662}
-  ActivePlayer: {fileID: 1019991478}
+  Bloom: {fileID: 1019991478}
+  Flora: {fileID: 895416662}
+  Stella: {fileID: 442093741}
 --- !u!114 &895416669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7056,8 +7058,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631c857119803044b6e3310cbcef13e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OtherPlayer: {fileID: 1019991478}
-  ActivePlayer: {fileID: 442093741}
+  Bloom: {fileID: 1019991478}
+  Flora: {fileID: 895416662}
+  Stella: {fileID: 442093741}
 --- !u!1 &1128752934
 GameObject:
   m_ObjectHideFlags: 0

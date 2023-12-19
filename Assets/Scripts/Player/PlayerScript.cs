@@ -4,54 +4,63 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    [SerializeField] public GameObject OtherPlayer;
-    [SerializeField] public GameObject ActivePlayer;
+    [SerializeField] public GameObject Bloom;
+    [SerializeField] public GameObject Flora;
+    [SerializeField] public GameObject Stella;
+
 
     private Transform lastPlayerTransform;
-    private float moveSpeed = 5f; 
+    private float moveSpeed = 5f;
 
     void Start()
     {
+        Bloom.SetActive(false);
+        Flora.SetActive(false);
+        Stella.SetActive(false);
         InitializePlayers();
     }
 
     void InitializePlayers()
     {
-        if (UnityEngine.Random.Range(0, 3) == 0)
+        int random = UnityEngine.Random.Range(0, 3);
+        if (random == 0)
         {
-            OtherPlayer.SetActive(false);
-            ActivePlayer.SetActive(true);
-            lastPlayerTransform = ActivePlayer.transform;
+            Bloom.SetActive(true);
         }
-        else
+        else if (random == 1)
         {
-            OtherPlayer.SetActive(true);
-            ActivePlayer.SetActive(false);
-            lastPlayerTransform = OtherPlayer.transform;
+            Flora.SetActive(true);
+        }
+        else if (random == 2)
+        {
+            Stella.SetActive(true);
         }
     }
 
     void TogglePlayers()
     {
-        OtherPlayer.SetActive(!OtherPlayer.activeSelf);
-        ActivePlayer.SetActive(!ActivePlayer.activeSelf);
-
-        if (ActivePlayer.activeSelf)
+        if (Bloom.activeSelf == true)
         {
-            lastPlayerTransform = ActivePlayer.transform;
+            Bloom.SetActive(false);
+            Flora.SetActive(true);
+            return;
         }
-        else
+        if (Flora.activeSelf == true)
         {
-            lastPlayerTransform = OtherPlayer.transform;
+            Flora.SetActive(false);
+            Stella.SetActive(true);
+            return;
+        }
+        if (Stella.activeSelf == true)
+        {
+            Stella.SetActive(false);
+            Bloom.SetActive(true);
         }
     }
 
     void Update()
     {
-        if (ActivePlayer.activeSelf)
-        {
-            MovePlayer();
-        }
+        MovePlayer();
     }
 
     void MovePlayer()
@@ -60,7 +69,24 @@ public class PlayerScript : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
 
         Vector3 movement = new Vector3(horizontal, vertical, 0f) * moveSpeed * Time.deltaTime;
-        ActivePlayer.transform.Translate(movement);
+        if (Bloom.activeSelf == true)
+        {
+            Bloom.transform.Translate(movement);
+            Flora.transform.position = Bloom.transform.position;
+            Stella.transform.position = Bloom.transform.position;
+        }
+        if (Flora.activeSelf == true)
+        {
+            Flora.transform.Translate(movement);
+            Bloom.transform.position = Flora.transform.position;
+            Stella.transform.position = Flora.transform.position;
+        }
+        if (Stella.activeSelf == true)
+        { 
+            Stella.transform.Translate(movement);
+            Flora.transform.position = Stella.transform.position;
+            Bloom.transform.position = Stella.transform.position;
+        }
     }
 
     void OnMouseDown()
