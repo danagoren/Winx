@@ -12,6 +12,7 @@ TagManager:
   - Sun
   - Nature
   - voidTrap
+  - TreeTrap
   layers:
   - Default
   - TransparentFX
