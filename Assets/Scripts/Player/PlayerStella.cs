@@ -7,6 +7,7 @@ public class PlayerStella : PlayableCharacter
     private Rigidbody2D rb;
 
     [SerializeField] private SunPower sunPower;
+    [SerializeField] GameObject youDiedScreen;
 
     protected override void Start()
     {
@@ -62,6 +63,7 @@ public class PlayerStella : PlayableCharacter
 
     public override void Die()
     {
+        youDiedScreen.SetActive(true);
         gameObject.SetActive(false);
     }
 
