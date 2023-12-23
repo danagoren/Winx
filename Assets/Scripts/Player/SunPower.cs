@@ -17,38 +17,39 @@ public class SunPower : MonoBehaviour
         }
     }
 
-
     void Update()
     {
         transform.position = playerStella.transform.position;
         transform.rotation = playerStella.transform.rotation;
 
+
         if (playerStella.isActiveAndEnabled && Input.GetKeyDown(KeyCode.Return))
         {
-            if (particleSystem != null)
-            {
-                particleSystem.Play();
-                
-            }
+            ActivateAbility();
+        }
+    }
 
-            ApplyDamageByTag("VoidTrap", 10);
+    void ActivateAbility()
+    {
+        if (particleSystem != null)
+        {
+            particleSystem.Play();
         }
     }
 
     public void TakeDamage(int howMuch)
     {
-
     }
 
     public void Die()
     {
-
     }
+
     void OnParticleCollision(GameObject other)
     {
-        if (other.CompareTag("voidTrap"))
+        if (other.CompareTag("VoidTrap"))
         {
-            ApplyDamageByTag("voidTrap", 10);
+            ApplyDamageByTag("VoidTrap", 10);
         }
     }
 

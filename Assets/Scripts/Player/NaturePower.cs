@@ -17,38 +17,39 @@ public class NaturePower : MonoBehaviour
         }
     }
 
-
     void Update()
     {
         transform.position = playerFlora.transform.position;
         transform.rotation = playerFlora.transform.rotation;
 
+
         if (playerFlora.isActiveAndEnabled && Input.GetKeyDown(KeyCode.Return))
         {
-            if (particleSystem != null)
-            {
-                particleSystem.Play();
+            ActivateAbility();
+        }
+    }
 
-            }
-
-            ApplyDamageByTag("TreeTrap", 10);
+    void ActivateAbility()
+    {
+        if (particleSystem != null)
+        {
+            particleSystem.Play();
         }
     }
 
     public void TakeDamage(int howMuch)
     {
-
     }
 
     public void Die()
     {
-
     }
+
     void OnParticleCollision(GameObject other)
     {
-        if (other.CompareTag("IceTrap"))
+        if (other.CompareTag("TreeTrap"))
         {
-            ApplyDamageByTag("IceTrap", 10);
+            ApplyDamageByTag("TreeTrap", 10);
         }
     }
 

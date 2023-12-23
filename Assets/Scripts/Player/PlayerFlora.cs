@@ -7,6 +7,7 @@ public class PlayerFlora : PlayableCharacter
     private Rigidbody2D rb;
 
     [SerializeField] private NaturePower naturePower;
+    [SerializeField] GameObject youDiedScreen;
 
     protected override void Start()
     {
@@ -62,6 +63,8 @@ public class PlayerFlora : PlayableCharacter
 
     public override void Die()
     {
+        youDiedScreen.SetActive(true);
+
         gameObject.SetActive(false);
     }
 }

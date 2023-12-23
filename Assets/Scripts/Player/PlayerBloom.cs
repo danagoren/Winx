@@ -7,6 +7,7 @@ public class PlayerBloom : PlayableCharacter
     private Rigidbody2D rb;
 
     [SerializeField] private FirePower firePower;
+    [SerializeField] GameObject youDiedScreen;
 
     protected override void Start()
     {
@@ -62,6 +63,8 @@ public class PlayerBloom : PlayableCharacter
 
     public override void Die()
     {
+        youDiedScreen.SetActive(true);
+
         gameObject.SetActive(false);
     }
 }

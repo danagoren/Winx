@@ -24,24 +24,26 @@ public class FirePower : MonoBehaviour
 
         if (playerBloom.isActiveAndEnabled && Input.GetKeyDown(KeyCode.Return))
         {
-            if (particleSystem != null)
-            {
-                particleSystem.Play();
-            }
+            ActivateAbility();
+        }
+    }
 
-            ApplyDamageByTag("IceTrap", 10);
+    void ActivateAbility()
+    {
+        if (particleSystem != null)
+        {
+            particleSystem.Play();
         }
     }
 
     public void TakeDamage(int howMuch)
     {
-
     }
 
     public void Die()
     {
-
     }
+
     void OnParticleCollision(GameObject other)
     {
         if (other.CompareTag("IceTrap"))
