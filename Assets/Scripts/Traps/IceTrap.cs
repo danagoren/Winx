@@ -6,10 +6,12 @@ public class IceTrap : Trap
 {
     private int trapHealth = 1;
     [SerializeField] GameObject icyDialo;
+    private CameraShake cameraShake;
 
     protected override void Start()
     {
         base.Start();
+        cameraShake = Camera.main.GetComponent<CameraShake>();
     }
 
     protected override void Update()
@@ -41,6 +43,7 @@ public class IceTrap : Trap
 
     public override void Die()
     {
+        cameraShake.Shake();
         icyDialo.SetActive(true);
         Invoke("DestroyTrap", 3f);
 

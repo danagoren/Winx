@@ -6,7 +6,8 @@ public class FirePower : MonoBehaviour
 {
     [SerializeField] new private ParticleSystem particleSystem;
     private PlayerBloom playerBloom;
-    
+
+   
 
     void Awake()
     {
@@ -34,6 +35,7 @@ public class FirePower : MonoBehaviour
         if (particleSystem != null)
         {
             particleSystem.Play();
+         
         }
     }
 
