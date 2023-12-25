@@ -5,6 +5,7 @@ using UnityEngine;
 public class IceTrap : Trap
 {
     private int trapHealth = 1;
+    [SerializeField] GameObject icyDialo;
 
     protected override void Start()
     {
@@ -40,6 +41,14 @@ public class IceTrap : Trap
 
     public override void Die()
     {
+        icyDialo.SetActive(true);
+        Invoke("DestroyTrap", 3f);
+
+    }
+
+    private void DestroyTrap()
+    {
+        icyDialo.SetActive(false);
         Destroy(gameObject);
     }
 }

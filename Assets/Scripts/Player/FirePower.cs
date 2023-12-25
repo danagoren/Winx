@@ -6,6 +6,7 @@ public class FirePower : MonoBehaviour
 {
     [SerializeField] new private ParticleSystem particleSystem;
     private PlayerBloom playerBloom;
+    
 
     void Awake()
     {
