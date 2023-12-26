@@ -11108,7 +11108,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 926411141}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1, y: 0.41, z: -10}
+  m_LocalPosition: {x: -0.1, y: 0.39, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18248,19 +18248,19 @@ ParticleSystem:
         key5: {r: 1, g: 0.7177419, b: 0, a: 0}
         key6: {r: 0.92156863, g: 0.78039217, b: 0.1764706, a: 0}
         key7: {r: 0.92156863, g: 0.34901962, b: 0.1764706, a: 0}
-        ctime0: 10023
-        ctime1: 14649
-        ctime2: 21010
-        ctime3: 26985
-        ctime4: 34695
-        ctime5: 44140
-        ctime6: 50886
-        ctime7: 55127
-        atime0: 0
-        atime1: 3855
+        ctime0: 7132
+        ctime1: 10794
+        ctime2: 14649
+        ctime3: 18311
+        ctime4: 22552
+        ctime5: 26214
+        ctime6: 30647
+        ctime7: 34695
+        atime0: 771
+        atime1: 4626
         atime2: 31997
-        atime3: 60138
-        atime4: 65342
+        atime3: 39321
+        atime4: 43176
         atime5: 0
         atime6: 0
         atime7: 0
