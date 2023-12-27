@@ -5,15 +5,10 @@ using UnityEngine;
 public class TreeTrap : Trap
 {
     private int trapHealth = 1;
-    [SerializeField] GameObject darcyDialo;
-    private CameraShake cameraShake;
-
-
 
     protected override void Start()
     {
         base.Start();
-        cameraShake = Camera.main.GetComponent<CameraShake>();
     }
 
     protected override void Update()
@@ -38,22 +33,13 @@ public class TreeTrap : Trap
 
             if (collider2D.CompareTag("Flora"))
             {
-                damagable.TakeDamage(5);
+                damagable.TakeDamage(10);
             }
         }
     }
 
     public override void Die()
     {
-        cameraShake.Shake();
-        darcyDialo.SetActive(true);
-        Invoke("DestroyTrap", 3f);
-    }
-
-    private void DestroyTrap()
-    {
-        darcyDialo.SetActive(false);
         Destroy(gameObject);
     }
-
 }
