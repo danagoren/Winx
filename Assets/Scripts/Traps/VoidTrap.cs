@@ -5,10 +5,13 @@ using UnityEngine;
 public class VoidTrap : Trap
 {
     private int trapHealth = 1;
+    [SerializeField] GameObject stormyDialo;
+    private CameraShake cameraShake;
 
     protected override void Start()
     {
         base.Start();
+        cameraShake = Camera.main.GetComponent<CameraShake>();
     }
 
     protected override void Update()
@@ -33,13 +36,22 @@ public class VoidTrap : Trap
            
             if (collider2D.CompareTag("Stella"))
             {
-                damagable.TakeDamage(10);
+                damagable.TakeDamage(5);
             }
         }
     }
 
     public override void Die()
     {
+        cameraShake.Shake();
+        stormyDialo.SetActive(true);
+        Invoke("DestroyTrap", 3f);
+    }
+
+
+    private void DestroyTrap()
+    {
+        stormyDialo.SetActive(false);
         Destroy(gameObject);
     }
 }

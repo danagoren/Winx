@@ -35,7 +35,7 @@ public class IceTrap : Trap
         {
             if (collider2D.CompareTag("Bloom"))
             {
-                damagable.TakeDamage(10);
+                damagable.TakeDamage(5);
             }
           
         }
