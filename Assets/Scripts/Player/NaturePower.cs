@@ -19,13 +19,15 @@ public class NaturePower : MonoBehaviour
 
     void Update()
     {
-        transform.position = playerFlora.transform.position;
-        transform.rotation = playerFlora.transform.rotation;
-
-
-        if (playerFlora.isActiveAndEnabled && Input.GetKeyDown(KeyCode.Return))
+        if (playerFlora != null)
         {
-            ActivateAbility();
+            transform.position = playerFlora.transform.position;
+            transform.rotation = playerFlora.transform.rotation;
+
+            if (playerFlora.isActiveAndEnabled && Input.GetKeyDown(KeyCode.Return))
+            {
+                ActivateAbility();
+            }
         }
     }
 

@@ -19,13 +19,15 @@ public class SunPower : MonoBehaviour
 
     void Update()
     {
-        transform.position = playerStella.transform.position;
-        transform.rotation = playerStella.transform.rotation;
-
-
-        if (playerStella.isActiveAndEnabled && Input.GetKeyDown(KeyCode.Return))
+        if (playerStella != null)
         {
-            ActivateAbility();
+            transform.position = playerStella.transform.position;
+            transform.rotation = playerStella.transform.rotation;
+
+            if (playerStella.isActiveAndEnabled && Input.GetKeyDown(KeyCode.Return))
+            {
+                ActivateAbility();
+            }
         }
     }
 
