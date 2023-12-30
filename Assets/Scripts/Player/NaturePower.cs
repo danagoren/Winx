@@ -6,6 +6,7 @@ public class NaturePower : MonoBehaviour
 {
     [SerializeField] new private ParticleSystem particleSystem;
     private PlayerFlora playerFlora;
+    private CameraShake cameraShake;
 
     void Awake()
     {
@@ -14,20 +15,18 @@ public class NaturePower : MonoBehaviour
         if (particleSystem != null)
         {
             particleSystem.Pause();
+            cameraShake = Camera.main.GetComponent<CameraShake>();
         }
     }
 
     void Update()
     {
-        if (playerFlora != null)
-        {
-            transform.position = playerFlora.transform.position;
-            transform.rotation = playerFlora.transform.rotation;
+        transform.position = playerFlora.transform.position;
+        transform.rotation = playerFlora.transform.rotation;
 
-            if (playerFlora.isActiveAndEnabled && Input.GetKeyDown(KeyCode.Return))
-            {
-                ActivateAbility();
-            }
+        if (playerFlora.isActiveAndEnabled && Input.GetKeyDown(KeyCode.Return))
+        {
+            ActivateAbility();
         }
     }
 
@@ -51,7 +50,8 @@ public class NaturePower : MonoBehaviour
     {
         if (other.CompareTag("TreeTrap"))
         {
-            ApplyDamageByTag("TreeTrap", 10);
+            ApplyDamageByTag("TreeTrap", 1);
+            cameraShake.Shake();
         }
     }
 

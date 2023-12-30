@@ -6,8 +6,9 @@ public class FirePower : MonoBehaviour
 {
     [SerializeField] new private ParticleSystem particleSystem;
     private PlayerBloom playerBloom;
+    private CameraShake cameraShake;
 
-   
+
 
     void Awake()
     {
@@ -16,6 +17,7 @@ public class FirePower : MonoBehaviour
         if (particleSystem != null)
         {
             particleSystem.Pause();
+            cameraShake = Camera.main.GetComponent<CameraShake>();
         }
     }
 
@@ -51,7 +53,8 @@ public class FirePower : MonoBehaviour
     {
         if (other.CompareTag("IceTrap"))
         {
-            ApplyDamageByTag("IceTrap", 10);
+            ApplyDamageByTag("IceTrap", 1);
+            cameraShake.Shake();
         }
     }
 

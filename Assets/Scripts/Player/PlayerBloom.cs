@@ -8,6 +8,8 @@ public class PlayerBloom : PlayableCharacter
 
     [SerializeField] private FirePower firePower;
     [SerializeField] GameObject youDiedScreen;
+    [SerializeField] AudioSource audioDeathP;
+
 
     protected override void Start()
     {
@@ -27,7 +29,7 @@ public class PlayerBloom : PlayableCharacter
     {
         if ((other.gameObject.CompareTag("VoidTrap")) || (other.gameObject.CompareTag("TreeTrap")))
         {
-            TakeDamage(10);
+            TakeDamage(5);
         }
     }
 
@@ -43,7 +45,7 @@ public class PlayerBloom : PlayableCharacter
     {
         if (damagable is Collider2D collider2D && collider2D.CompareTag("IceTrap"))
         {
-            damagable.TakeDamage(10);
+            damagable.TakeDamage(1);
         }
     }
 
@@ -63,6 +65,7 @@ public class PlayerBloom : PlayableCharacter
 
     public override void Die()
     {
+        audioDeathP.Play();
         youDiedScreen.SetActive(true);
 
         gameObject.SetActive(false);

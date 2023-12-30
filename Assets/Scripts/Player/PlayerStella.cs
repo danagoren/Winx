@@ -1,13 +1,15 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStella : PlayableCharacter
 {
     private Rigidbody2D rb;
-
     [SerializeField] private SunPower sunPower;
     [SerializeField] GameObject youDiedScreen;
+    [SerializeField] AudioSource audioDeathP;
+    [SerializeField] GameObject iceDamage;
+
+    private bool isIced = false;
 
     protected override void Start()
     {
@@ -25,10 +27,29 @@ public class PlayerStella : PlayableCharacter
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if ((other.gameObject.CompareTag("IceTrap")) || (other.gameObject.CompareTag("TreeTrap")))
+        if (other.gameObject.CompareTag("IceTrap") || other.gameObject.CompareTag("TreeTrap"))
         {
-            TakeDamage(10);
+            TakeDamage(5);
+            if (!isIced)
+            {
+                StartCoroutine(ActivateIceDamage());
+            }
         }
+    }
+
+    IEnumerator ActivateIceDamage()
+    {
+        isIced = true;
+        iceDamage.SetActive(true);
+
+        sunPower.enabled = false;
+
+        yield return new WaitForSeconds(30f);
+
+        sunPower.enabled = true;
+
+        iceDamage.SetActive(false);
+        isIced = false;
     }
 
     protected override void Movement()
@@ -43,13 +64,13 @@ public class PlayerStella : PlayableCharacter
     {
         if (damagable is Collider2D collider2D && collider2D.CompareTag("VoidTrap"))
         {
-            damagable.TakeDamage(10);
+            damagable.TakeDamage(1);
         }
     }
 
     protected override void SpecialAbility()
     {
-       sunPower.SpecialAbility();
+        sunPower.SpecialAbility();
     }
 
     public override void TakeDamage(int howMuch)
@@ -63,8 +84,8 @@ public class PlayerStella : PlayableCharacter
 
     public override void Die()
     {
+        audioDeathP.Play();
         youDiedScreen.SetActive(true);
         gameObject.SetActive(false);
     }
-
-   }
+}

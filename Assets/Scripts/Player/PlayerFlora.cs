@@ -8,6 +8,8 @@ public class PlayerFlora : PlayableCharacter
 
     [SerializeField] private NaturePower naturePower;
     [SerializeField] GameObject youDiedScreen;
+    [SerializeField] AudioSource audioDeathP;
+
 
     protected override void Start()
     {
@@ -27,7 +29,7 @@ public class PlayerFlora : PlayableCharacter
     {
         if ((other.gameObject.CompareTag("VoidTrap")) || (other.gameObject.CompareTag("IceTrap")))
         {
-            TakeDamage(10);
+            TakeDamage(5);
         }
     }
 
@@ -41,9 +43,9 @@ public class PlayerFlora : PlayableCharacter
 
     protected override void ApplyDamage(IDamageable damagable)
     {
-        if (damagable is Collider2D collider2D && collider2D.CompareTag("IceTrap"))
+        if (damagable is Collider2D collider2D && collider2D.CompareTag("TreeTrap"))
         {
-            damagable.TakeDamage(10);
+            damagable.TakeDamage(1);
         }
     }
 
@@ -63,6 +65,7 @@ public class PlayerFlora : PlayableCharacter
 
     public override void Die()
     {
+        audioDeathP.Play();
         youDiedScreen.SetActive(true);
 
         gameObject.SetActive(false);

@@ -6,6 +6,8 @@ public class SunPower : MonoBehaviour
 {
     [SerializeField] new private ParticleSystem particleSystem;
     private PlayerStella playerStella;
+    private CameraShake cameraShake;
+
 
     void Awake()
     {
@@ -14,7 +16,10 @@ public class SunPower : MonoBehaviour
         if (particleSystem != null)
         {
             particleSystem.Pause();
+            cameraShake = Camera.main.GetComponent<CameraShake>();
+
         }
+
     }
 
     void Update()
@@ -51,7 +56,9 @@ public class SunPower : MonoBehaviour
     {
         if (other.CompareTag("VoidTrap"))
         {
-            ApplyDamageByTag("VoidTrap", 10);
+            ApplyDamageByTag("VoidTrap", 1);
+            cameraShake.Shake();
+
         }
     }
 

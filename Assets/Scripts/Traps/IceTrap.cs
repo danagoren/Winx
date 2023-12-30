@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IceTrap : Trap
 {
-    private int trapHealth = 1;
+    private int trapHealth = 20;
     [SerializeField] GameObject icyDialo;
     private CameraShake cameraShake;
    [SerializeField] AudioSource audioDeath;
@@ -36,7 +36,7 @@ public class IceTrap : Trap
         {
             if (collider2D.CompareTag("Bloom"))
             {
-                damagable.TakeDamage(10);
+                damagable.TakeDamage(5);
             }
           
         }
