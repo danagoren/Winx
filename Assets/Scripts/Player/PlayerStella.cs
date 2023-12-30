@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Diagnostics;
 using UnityEngine;
 
 public class PlayerStella : PlayableCharacter
@@ -8,6 +9,7 @@ public class PlayerStella : PlayableCharacter
     [SerializeField] GameObject youDiedScreen;
     [SerializeField] AudioSource audioDeathP;
     [SerializeField] GameObject iceDamage;
+    [SerializeField] GameObject sunPowerC;
 
     private bool isIced = false;
 
@@ -42,11 +44,11 @@ public class PlayerStella : PlayableCharacter
         isIced = true;
         iceDamage.SetActive(true);
 
-        sunPower.enabled = false;
+        sunPowerC.SetActive(false);
 
         yield return new WaitForSeconds(30f);
 
-        sunPower.enabled = true;
+        sunPowerC.SetActive(true);
 
         iceDamage.SetActive(false);
         isIced = false;

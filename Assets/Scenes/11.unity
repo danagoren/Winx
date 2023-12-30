@@ -3285,6 +3285,7 @@ GameObject:
   m_Component:
   - component: {fileID: 442093742}
   - component: {fileID: 442093746}
+  - component: {fileID: 442093749}
   - component: {fileID: 442093745}
   - component: {fileID: 442093744}
   - component: {fileID: 442093747}
@@ -3470,6 +3471,20 @@ MonoBehaviour:
   youDiedScreen: {fileID: 1865628634}
   audioDeathP: {fileID: 1509412445}
   iceDamage: {fileID: 2106419991}
+  sunPowerC: {fileID: 1206315735}
+--- !u!114 &442093749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442093741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddc9c3d09169f204e8a950b5295407e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleSystem: {fileID: 1206315738}
 --- !u!1 &447771115
 GameObject:
   m_ObjectHideFlags: 0
