@@ -9,8 +9,9 @@ public class PlayerStella : PlayableCharacter
     [SerializeField] GameObject youDiedScreen;
     [SerializeField] AudioSource audioDeathP;
     [SerializeField] GameObject iceDamage;
+    [SerializeField] GameObject poisonDamage;
     [SerializeField] GameObject sunPowerC;
-
+    private bool isPoisond = false;
     private bool isIced = false;
 
     protected override void Start()
@@ -29,12 +30,20 @@ public class PlayerStella : PlayableCharacter
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("IceTrap") || other.gameObject.CompareTag("TreeTrap"))
+          if (other.gameObject.CompareTag("IceTrap"))
         {
             TakeDamage(5);
             if (!isIced)
             {
                 StartCoroutine(ActivateIceDamage());
+            }
+        }
+        else if (other.gameObject.CompareTag("TreeTrap"))
+        {
+            TakeDamage(5);
+            if (!isPoisond)
+            {
+                StartCoroutine(ActivePoisonDamage());
             }
         }
     }
@@ -52,6 +61,18 @@ public class PlayerStella : PlayableCharacter
 
         iceDamage.SetActive(false);
         isIced = false;
+    }
+
+    IEnumerator ActivePoisonDamage()
+    {
+        isPoisond = true;
+        poisonDamage.SetActive(true);
+        sunPowerC.SetActive(false);
+        yield return new WaitForSeconds(30f);
+        sunPowerC.SetActive(true);
+        poisonDamage.SetActive(false);
+        isPoisond = false;
+
     }
 
     protected override void Movement()

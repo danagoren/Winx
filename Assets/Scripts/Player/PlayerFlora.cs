@@ -9,6 +9,12 @@ public class PlayerFlora : PlayableCharacter
     [SerializeField] private NaturePower naturePower;
     [SerializeField] GameObject youDiedScreen;
     [SerializeField] AudioSource audioDeathP;
+    [SerializeField] GameObject iceDamage;
+    [SerializeField] GameObject poisenDamage;
+    [SerializeField] GameObject naturePowerC;
+    private bool isIced = false;
+    private bool isPoisend = false;
+
 
 
     protected override void Start()
@@ -27,10 +33,48 @@ public class PlayerFlora : PlayableCharacter
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if ((other.gameObject.CompareTag("VoidTrap")) || (other.gameObject.CompareTag("IceTrap")))
+        if (other.gameObject.CompareTag("IceTrap") || other.gameObject.CompareTag("VoidTrap"))
         {
             TakeDamage(5);
+            if (!isIced)
+            {
+                StartCoroutine(ActivateIceDamage());
+            }
+           if(!isPoisend) 
+            {
+               StartCoroutine(ActivePoisenDamage());
+
+            }
         }
+    }
+
+    IEnumerator ActivateIceDamage()
+    {
+        isIced = true;
+        iceDamage.SetActive(true);
+
+        naturePowerC.SetActive(false);
+
+        yield return new WaitForSeconds(30f);
+
+        naturePowerC.SetActive(true);
+
+        iceDamage.SetActive(false);
+        isIced = false;
+    }
+
+    IEnumerator ActivePoisenDamage() 
+    {
+        isPoisend = true;
+        poisenDamage.SetActive(true);
+        naturePowerC.SetActive(false);
+        yield return new WaitForSeconds(30f);
+        naturePowerC.SetActive(true);
+        poisenDamage.SetActive(false) ;
+        isPoisend= false;   
+
+
+    
     }
 
     protected override void Movement()
