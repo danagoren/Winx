@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerBloom : PlayableCharacter
 {
@@ -9,7 +10,7 @@ public class PlayerBloom : PlayableCharacter
     [SerializeField] private FirePower firePower;
     [SerializeField] GameObject youDiedScreen;
     [SerializeField] AudioSource audioDeathP;
-
+    Animator animator;
 
     protected override void Start()
     {
@@ -17,6 +18,7 @@ public class PlayerBloom : PlayableCharacter
         base.Start();
         firePower = GetComponent<FirePower>();
         currentHP = 10;
+        animator = GetComponent<Animator>();
     }
 
     protected override void Update()
@@ -39,6 +41,25 @@ public class PlayerBloom : PlayableCharacter
         float movY = Input.GetAxisRaw("Vertical");
         Vector2 movement = new Vector2(movX * speed, movY * speed);
         rb.velocity = movement;
+        //get the direction
+        float moveDirection = Input.GetAxis("Horizontal");
+        //change sprite according to direction and state:
+        //Debug.Log(moveDirection);
+        if (moveDirection > 0)
+        {
+            animator.SetBool("isFlying", true);
+            transform.localScale = new Vector3(-0.4f, 0.4f, 1f);
+        }
+        if (moveDirection < 0)
+        {
+            animator.SetBool("isFlying", true);
+            transform.localScale = new Vector3(0.4f, 0.4f, 1f);
+        }
+        if (moveDirection == 0)
+        {
+            animator.SetBool("isFlying", false);
+            transform.localScale = new Vector3(0.4f, 0.4f, 1f);
+        }
     }
 
     protected override void ApplyDamage(IDamageable damagable)
