@@ -8,7 +8,7 @@ public class TreeTrap : Trap
     private CameraShake cameraShake;
     [SerializeField] AudioSource audioDeath;
     [SerializeField] GameObject darcyDialo;
-
+    [SerializeField] GameObject goodMash;
 
     protected override void Start()
     {
@@ -55,6 +55,7 @@ public class TreeTrap : Trap
     private void DestroyTrap()
     {
         darcyDialo.SetActive(false);
+        goodMash.SetActive(true);
         Destroy(gameObject);
     }
 }
