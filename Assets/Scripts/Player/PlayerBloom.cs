@@ -11,6 +11,12 @@ public class PlayerBloom : PlayableCharacter
     [SerializeField] GameObject youDiedScreen;
     [SerializeField] AudioSource audioDeathP;
     Animator animator;
+    [SerializeField] GameObject poisonDamage;
+    [SerializeField] GameObject voidDamage;
+    private bool isPoisond = false;
+    private bool isVoid = false;
+    [SerializeField] GameObject firePowerC;
+
 
     protected override void Start()
     {
@@ -29,10 +35,46 @@ public class PlayerBloom : PlayableCharacter
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if ((other.gameObject.CompareTag("VoidTrap")) || (other.gameObject.CompareTag("TreeTrap")))
+        if (other.gameObject.CompareTag("VoidTrap"))
         {
             TakeDamage(5);
+            if (!isVoid)
+            {
+                StartCoroutine(ActiveVoidDamage());
+            }
         }
+        else if (other.gameObject.CompareTag("TreeTrap"))
+        {
+            TakeDamage(5);
+            if (!isPoisond)
+            {
+                StartCoroutine(ActivePoisonDamage());
+            }
+        }
+    }
+
+    IEnumerator ActivePoisonDamage()
+    {
+        isPoisond = true;
+        poisonDamage.SetActive(true);
+        firePowerC.SetActive(false);
+        yield return new WaitForSeconds(30f);
+        firePowerC.SetActive(true);
+        poisonDamage.SetActive(false);
+        isPoisond = false;
+
+    }
+
+    IEnumerator ActiveVoidDamage()
+    {
+        isVoid = true;
+        voidDamage.SetActive(true);
+        firePowerC.SetActive(false);
+        yield return new WaitForSeconds(30f);
+        firePowerC.SetActive(true);
+       voidDamage.SetActive(false);
+        isVoid = false;
+
     }
 
     protected override void Movement()
@@ -41,10 +83,7 @@ public class PlayerBloom : PlayableCharacter
         float movY = Input.GetAxisRaw("Vertical");
         Vector2 movement = new Vector2(movX * speed, movY * speed);
         rb.velocity = movement;
-        //get the direction
-        float moveDirection = Input.GetAxis("Horizontal");
-        //change sprite according to direction and state:
-        //Debug.Log(moveDirection);
+        float moveDirection = Input.GetAxis("Horizontal");   
         if (moveDirection > 0)
         {
             animator.SetBool("isFlying", true);

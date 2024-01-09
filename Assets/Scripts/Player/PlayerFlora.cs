@@ -10,10 +10,10 @@ public class PlayerFlora : PlayableCharacter
     [SerializeField] GameObject youDiedScreen;
     [SerializeField] AudioSource audioDeathP;
     [SerializeField] GameObject iceDamage;
-    [SerializeField] GameObject poisenDamage;
     [SerializeField] GameObject naturePowerC;
+    [SerializeField] GameObject voidDamage;
+    private bool isVoid = false;
     private bool isIced = false;
-    private bool isPoisend = false;
 
 
 
@@ -40,9 +40,9 @@ public class PlayerFlora : PlayableCharacter
             {
                 StartCoroutine(ActivateIceDamage());
             }
-           if(!isPoisend) 
+           if(!isVoid) 
             {
-               StartCoroutine(ActivePoisenDamage());
+               StartCoroutine(ActivateVoidDamage());
 
             }
         }
@@ -63,19 +63,22 @@ public class PlayerFlora : PlayableCharacter
         isIced = false;
     }
 
-    IEnumerator ActivePoisenDamage() 
+    IEnumerator ActivateVoidDamage()
     {
-        isPoisend = true;
-        poisenDamage.SetActive(true);
+        isVoid = true;
+        voidDamage.SetActive(true);
+
         naturePowerC.SetActive(false);
+
         yield return new WaitForSeconds(30f);
+
         naturePowerC.SetActive(true);
-        poisenDamage.SetActive(false) ;
-        isPoisend= false;   
 
-
-    
+        voidDamage.SetActive(false);
+        isVoid = false;
     }
+
+   
 
     protected override void Movement()
     {
