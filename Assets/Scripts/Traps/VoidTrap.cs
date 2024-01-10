@@ -54,7 +54,6 @@ public class VoidTrap : Trap
 
     private void DestroyTrap()
     {
-        stormyDialo.SetActive(false);
         Destroy(gameObject);
     }
 }

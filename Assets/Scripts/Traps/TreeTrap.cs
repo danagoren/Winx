@@ -54,7 +54,6 @@ public class TreeTrap : Trap
 
     private void DestroyTrap()
     {
-        darcyDialo.SetActive(false);
         goodMash.SetActive(true);
         Destroy(gameObject);
     }
