@@ -32,19 +32,19 @@ MonoBehaviour:
   active: 1
   postExposure:
     m_OverrideState: 1
-    m_Value: 2.22
+    m_Value: -0.52
   contrast:
     m_OverrideState: 1
-    m_Value: 100
+    m_Value: 56
   colorFilter:
     m_OverrideState: 1
     m_Value: {r: 0.06616232, g: 0.112033665, b: 0.1981132, a: 1}
   hueShift:
     m_OverrideState: 1
-    m_Value: 98
+    m_Value: 101
   saturation:
     m_OverrideState: 1
-    m_Value: 100
+    m_Value: 51
 --- !u!114 &8645906570196386351
 MonoBehaviour:
   m_ObjectHideFlags: 3

@@ -13,9 +13,12 @@ public class PlayerBloom : PlayableCharacter
     Animator animator;
     [SerializeField] GameObject poisonDamage;
     [SerializeField] GameObject voidDamage;
+    [SerializeField] GameObject bloomDialoMash;
+    [SerializeField] GameObject bloomDialoVoid;
     private bool isPoisond = false;
     private bool isVoid = false;
     [SerializeField] GameObject firePowerC;
+
 
 
     protected override void Start()
@@ -58,7 +61,8 @@ public class PlayerBloom : PlayableCharacter
         isPoisond = true;
         poisonDamage.SetActive(true);
         firePowerC.SetActive(false);
-        yield return new WaitForSeconds(30f);
+        bloomDialoMash.SetActive(true);
+        yield return new WaitForSeconds(10f);
         firePowerC.SetActive(true);
         poisonDamage.SetActive(false);
         isPoisond = false;
@@ -70,11 +74,11 @@ public class PlayerBloom : PlayableCharacter
         isVoid = true;
         voidDamage.SetActive(true);
         firePowerC.SetActive(false);
-        yield return new WaitForSeconds(30f);
+        bloomDialoVoid.SetActive(true);
+        yield return new WaitForSeconds(10f);
         firePowerC.SetActive(true);
        voidDamage.SetActive(false);
         isVoid = false;
-
     }
 
     protected override void Movement()

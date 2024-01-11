@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class VoidTrap : Trap
 {
-    private int trapHealth = 2;
+    private int trapHealth = 20;
     private CameraShake cameraShake;
     [SerializeField] AudioSource audioDeath;
     [SerializeField] GameObject stormyDialo;

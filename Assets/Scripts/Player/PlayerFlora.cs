@@ -14,6 +14,11 @@ public class PlayerFlora : PlayableCharacter
     [SerializeField] GameObject voidDamage;
     private bool isVoid = false;
     private bool isIced = false;
+    [SerializeField] GameObject floraDialoIce;
+    [SerializeField] GameObject floraDialoVoid;
+
+
+
 
 
 
@@ -33,17 +38,20 @@ public class PlayerFlora : PlayableCharacter
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("IceTrap") || other.gameObject.CompareTag("VoidTrap"))
+        if (other.gameObject.CompareTag("IceTrap"))
         {
             TakeDamage(5);
             if (!isIced)
             {
                 StartCoroutine(ActivateIceDamage());
             }
-           if(!isVoid) 
+        }
+        else if (other.gameObject.CompareTag("VoidTrap"))
+        {
+            TakeDamage(5);
+            if (!isVoid)
             {
-               StartCoroutine(ActivateVoidDamage());
-
+                StartCoroutine(ActiveVoidDamage());
             }
         }
     }
@@ -52,33 +60,36 @@ public class PlayerFlora : PlayableCharacter
     {
         isIced = true;
         iceDamage.SetActive(true);
-
         naturePowerC.SetActive(false);
+        floraDialoIce.SetActive(true);
 
-        yield return new WaitForSeconds(30f);
+        yield return new WaitForSeconds(10f);
 
         naturePowerC.SetActive(true);
 
         iceDamage.SetActive(false);
         isIced = false;
+
     }
 
-    IEnumerator ActivateVoidDamage()
+    IEnumerator ActiveVoidDamage()
     {
         isVoid = true;
         voidDamage.SetActive(true);
 
         naturePowerC.SetActive(false);
+        floraDialoVoid.SetActive(true);
 
-        yield return new WaitForSeconds(30f);
+        yield return new WaitForSeconds(10f);
 
         naturePowerC.SetActive(true);
 
         voidDamage.SetActive(false);
         isVoid = false;
+
     }
 
-   
+
 
     protected override void Movement()
     {

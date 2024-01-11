@@ -6,7 +6,7 @@ public class SunPower : MonoBehaviour
 {
     [SerializeField] new private ParticleSystem particleSystem;
     private PlayerStella playerStella;
-    private  CameraShake cameraShake;
+    private CameraShake cameraShake;
 
 
     void Awake()

@@ -11,6 +11,11 @@ public class PlayerStella : PlayableCharacter
     [SerializeField] GameObject iceDamage;
     [SerializeField] GameObject poisonDamage;
     [SerializeField] GameObject sunPowerC;
+    [SerializeField] GameObject stellaDialoIce;
+    [SerializeField] GameObject stellaDialoMash;
+
+
+
     private bool isPoisond = false;
     private bool isIced = false;
 
@@ -54,8 +59,9 @@ public class PlayerStella : PlayableCharacter
         iceDamage.SetActive(true);
 
         sunPowerC.SetActive(false);
+        stellaDialoIce.SetActive(true);
 
-        yield return new WaitForSeconds(30f);
+        yield return new WaitForSeconds(10f);
 
         sunPowerC.SetActive(true);
 
@@ -68,7 +74,8 @@ public class PlayerStella : PlayableCharacter
         isPoisond = true;
         poisonDamage.SetActive(true);
         sunPowerC.SetActive(false);
-        yield return new WaitForSeconds(30f);
+        stellaDialoMash.SetActive(true);
+        yield return new WaitForSeconds(10f);
         sunPowerC.SetActive(true);
         poisonDamage.SetActive(false);
         isPoisond = false;
