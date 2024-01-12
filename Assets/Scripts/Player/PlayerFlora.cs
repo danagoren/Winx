@@ -16,7 +16,7 @@ public class PlayerFlora : PlayableCharacter
     private bool isIced = false;
     [SerializeField] GameObject floraDialoIce;
     [SerializeField] GameObject floraDialoVoid;
-
+    Animator animator;
 
 
 
@@ -28,6 +28,7 @@ public class PlayerFlora : PlayableCharacter
         base.Start();
         naturePower = GetComponent<NaturePower>();
         currentHP = 10;
+        animator = GetComponent<Animator>();
     }
 
     protected override void Update()
@@ -97,6 +98,22 @@ public class PlayerFlora : PlayableCharacter
         float movY = Input.GetAxisRaw("Vertical");
         Vector2 movement = new Vector2(movX * speed, movY * speed);
         rb.velocity = movement;
+        float moveDirection = Input.GetAxis("Horizontal");
+        if (moveDirection > 0)
+        {
+            animator.SetBool("isFlying", true);
+            transform.localScale = new Vector3(0.037f, 0.037f, 1f);
+        }
+        if (moveDirection < 0)
+        {
+            animator.SetBool("isFlying", true);
+            transform.localScale = new Vector3(-0.037f, 0.037f, 1f);
+        }
+        if (moveDirection == 0)
+        {
+            animator.SetBool("isFlying", false);
+            transform.localScale = new Vector3(0.037f, 0.037f, 1f);
+        }
     }
 
     protected override void ApplyDamage(IDamageable damagable)
