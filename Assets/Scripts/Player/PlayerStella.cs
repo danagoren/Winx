@@ -13,6 +13,7 @@ public class PlayerStella : PlayableCharacter
     [SerializeField] GameObject sunPowerC;
     [SerializeField] GameObject stellaDialoIce;
     [SerializeField] GameObject stellaDialoMash;
+    Animator animator;
 
 
 
@@ -25,6 +26,8 @@ public class PlayerStella : PlayableCharacter
         base.Start();
         sunPower = GetComponent<SunPower>();
         currentHP = 10;
+        animator = GetComponent<Animator>();
+
     }
 
     protected override void Update()
@@ -88,6 +91,22 @@ public class PlayerStella : PlayableCharacter
         float movY = Input.GetAxisRaw("Vertical");
         Vector2 movement = new Vector2(movX * speed, movY * speed);
         rb.velocity = movement;
+        float moveDirection = Input.GetAxis("Horizontal");
+        if (moveDirection > 0)
+        {
+            animator.SetBool("isFlying", true);
+            transform.localScale = new Vector3(-0.22f, 0.22f, 1f);
+        }
+        if (moveDirection < 0)
+        {
+            animator.SetBool("isFlying", true);
+            transform.localScale = new Vector3(0.22f, 0.22f, 1f);
+        }
+        if (moveDirection == 0)
+        {
+            animator.SetBool("isFlying", false);
+            transform.localScale = new Vector3(0.4f, 0.4f, 1f);
+        }
     }
 
     protected override void ApplyDamage(IDamageable damagable)
