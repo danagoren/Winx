@@ -87,7 +87,21 @@ public class PlayerBloom : PlayableCharacter
         float movY = Input.GetAxisRaw("Vertical");
         Vector2 movement = new Vector2(movX * speed, movY * speed);
         rb.velocity = movement;
-        float moveDirection = Input.GetAxis("Horizontal");   
+        float moveDirection = Input.GetAxis("Horizontal");
+        if (Input.GetKey(KeyCode.Return) || Input.GetKeyDown(KeyCode.Return))
+        {
+            animator.SetBool("isFighting", true);
+            transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+            if (moveDirection < 0)
+            {
+                transform.localScale = new Vector3(-0.5f, 0.5f, 1f);
+            }
+            return;
+        }
+        else
+        {
+            animator.SetBool("isFighting", false);
+        }
         if (moveDirection > 0)
         {
             animator.SetBool("isFlying", true);
