@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TreeTrap : Trap
 {
-    private int trapHealth = 40;
+    private int trapHealth = 1;
     private CameraShake cameraShake;
     [SerializeField] AudioSource audioDeath;
     [SerializeField] GameObject darcyDialo;

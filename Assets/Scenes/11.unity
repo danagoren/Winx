@@ -5857,13 +5857,14 @@ GameObject:
   - component: {fileID: 442093744}
   - component: {fileID: 442093747}
   - component: {fileID: 442093748}
+  - component: {fileID: 442093750}
   m_Layer: 0
   m_Name: Stella
   m_TagString: Stella
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &442093742
 Transform:
   m_ObjectHideFlags: 0
@@ -6055,6 +6056,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleSystem: {fileID: 1206315738}
+--- !u!95 &442093750
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442093741}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 992a0d1da2864fc4f9bab77c0c7cf02c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &442881556
 GameObject:
   m_ObjectHideFlags: 0
@@ -15468,7 +15490,7 @@ Tilemap:
       - {fileID: 1405840381, guid: 724ce1e60cc4a5d45a08180b9cd0eab3, type: 3}
       - {fileID: 670626320, guid: 724ce1e60cc4a5d45a08180b9cd0eab3, type: 3}
       - {fileID: 579305573, guid: 724ce1e60cc4a5d45a08180b9cd0eab3, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 5, y: -6, z: 0}
@@ -15644,7 +15666,7 @@ Tilemap:
       - {fileID: -468034120, guid: 724ce1e60cc4a5d45a08180b9cd0eab3, type: 3}
       - {fileID: -2005305293, guid: 724ce1e60cc4a5d45a08180b9cd0eab3, type: 3}
       - {fileID: 1792814511, guid: 724ce1e60cc4a5d45a08180b9cd0eab3, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 16, y: 12, z: 0}
@@ -15677,7 +15699,7 @@ Tilemap:
       - {fileID: 1405840381, guid: 724ce1e60cc4a5d45a08180b9cd0eab3, type: 3}
       - {fileID: 670626320, guid: 724ce1e60cc4a5d45a08180b9cd0eab3, type: 3}
       - {fileID: 579305573, guid: 724ce1e60cc4a5d45a08180b9cd0eab3, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -1, y: 16, z: 0}
@@ -16552,7 +16574,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &895416663
 Transform:
   m_ObjectHideFlags: 0
@@ -17427,7 +17449,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 926411141}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.73, y: 10.07, z: -10}
+  m_LocalPosition: {x: 9.73, y: 10.05, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

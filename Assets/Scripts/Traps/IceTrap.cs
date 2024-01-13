@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IceTrap : Trap
 {
-    private int trapHealth = 20;
+    private int trapHealth = 1;
     [SerializeField] GameObject icyDialo;
     private CameraShake cameraShake;
    [SerializeField] AudioSource audioDeath;

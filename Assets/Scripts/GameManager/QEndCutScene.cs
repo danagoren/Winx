@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
+/*
 public class QEndCutScene : MonoBehaviour
 {
     private string EndScene;
@@ -16,3 +16,4 @@ public class QEndCutScene : MonoBehaviour
     }
     
 }
+*/
