@@ -20,6 +20,12 @@ TagManager:
   - VoidTrap3
   - IceTrap3
   - TreeTrap3
+  - IceTrap4
+  - IceTrap5
+  - TreeTrap4
+  - TreeTrap5
+  - VoidTrap4
+  - VoidTrap5
   layers:
   - Default
   - TransparentFX

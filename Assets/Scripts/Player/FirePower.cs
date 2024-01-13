@@ -52,7 +52,7 @@ public class FirePower : MonoBehaviour
     void OnParticleCollision(GameObject other)
     {
 
-        if (other.CompareTag("IceTrap") || other.CompareTag("IceTrap2") || other.CompareTag("IceTrap3"))
+        if (other.CompareTag("IceTrap") || other.CompareTag("IceTrap2") || other.CompareTag("IceTrap3") || other.CompareTag("IceTrap4") || other.CompareTag("IceTrap5"))
         {
             ApplyDamageByTag(other.tag, 1);
             cameraShake.Shake();

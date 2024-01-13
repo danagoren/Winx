@@ -52,7 +52,7 @@ public class NaturePower : MonoBehaviour
     void OnParticleCollision(GameObject other)
     {
 
-        if (other.CompareTag("TreeTrap") || other.CompareTag("TreeTrap2") || other.CompareTag("TreeTrap3"))
+        if (other.CompareTag("TreeTrap") || other.CompareTag("TreeTrap2") || other.CompareTag("TreeTrap3") || other.CompareTag("TreeTrap4") || other.CompareTag("TreeTrap5"))
         {
             ApplyDamageByTag(other.tag, 1);
             cameraShake.Shake();
