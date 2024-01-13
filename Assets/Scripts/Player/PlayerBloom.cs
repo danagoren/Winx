@@ -38,7 +38,7 @@ public class PlayerBloom : PlayableCharacter
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("VoidTrap"))
+        if (other.gameObject.CompareTag("VoidTrap") || other.gameObject.CompareTag("VoidTrap2") || other.gameObject.CompareTag("VoidTrap3"))
         {
             TakeDamage(5);
             if (!isVoid)
@@ -46,7 +46,7 @@ public class PlayerBloom : PlayableCharacter
                 StartCoroutine(ActiveVoidDamage());
             }
         }
-        else if (other.gameObject.CompareTag("TreeTrap"))
+        else if (other.gameObject.CompareTag("TreeTrap") || other.gameObject.CompareTag("TreeTrap2") || other.gameObject.CompareTag("TreeTrap3"))
         {
             TakeDamage(5);
             if (!isPoisond)
@@ -121,7 +121,7 @@ public class PlayerBloom : PlayableCharacter
 
     protected override void ApplyDamage(IDamageable damagable)
     {
-        if (damagable is Collider2D collider2D && collider2D.CompareTag("IceTrap"))
+        if (damagable is Collider2D collider2D && (collider2D.CompareTag("IceTrap") || collider2D.CompareTag("IceTrap2") || collider2D.CompareTag("IceTrap3")))
         {
             damagable.TakeDamage(1);
         }

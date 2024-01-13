@@ -38,7 +38,7 @@ public class PlayerStella : PlayableCharacter
 
     void OnTriggerEnter2D(Collider2D other)
     {
-          if (other.gameObject.CompareTag("IceTrap"))
+          if (other.gameObject.CompareTag("IceTrap") || other.gameObject.CompareTag("IceTrap2") || other.gameObject.CompareTag("IceTrap3"))
         {
             TakeDamage(5);
             if (!isIced)
@@ -46,7 +46,7 @@ public class PlayerStella : PlayableCharacter
                 StartCoroutine(ActivateIceDamage());
             }
         }
-        else if (other.gameObject.CompareTag("TreeTrap"))
+        else if (other.gameObject.CompareTag("treeTrap") || other.gameObject.CompareTag("TreeTrap2") || other.gameObject.CompareTag("TreeTrap3"))
         {
             TakeDamage(5);
             if (!isPoisond)
@@ -125,7 +125,7 @@ public class PlayerStella : PlayableCharacter
 
     protected override void ApplyDamage(IDamageable damagable)
     {
-        if (damagable is Collider2D collider2D && collider2D.CompareTag("VoidTrap"))
+        if (damagable is Collider2D collider2D && (collider2D.CompareTag("VoidTrap") || collider2D.CompareTag("VoidTrap2") || collider2D.CompareTag("VoidTrap3")))
         {
             damagable.TakeDamage(1);
         }

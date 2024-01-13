@@ -39,7 +39,7 @@ public class PlayerFlora : PlayableCharacter
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("IceTrap"))
+        if (other.gameObject.CompareTag("IceTrap") || other.gameObject.CompareTag("IceTrap2") || other.gameObject.CompareTag("IceTrap3"))
         {
             TakeDamage(5);
             if (!isIced)
@@ -47,7 +47,7 @@ public class PlayerFlora : PlayableCharacter
                 StartCoroutine(ActivateIceDamage());
             }
         }
-        else if (other.gameObject.CompareTag("VoidTrap"))
+        else if (other.gameObject.CompareTag("VoidTrap") || other.gameObject.CompareTag("VoidTrap2") || other.gameObject.CompareTag("VoidTrap3"))
         {
             TakeDamage(5);
             if (!isVoid)
@@ -132,7 +132,7 @@ public class PlayerFlora : PlayableCharacter
 
     protected override void ApplyDamage(IDamageable damagable)
     {
-        if (damagable is Collider2D collider2D && collider2D.CompareTag("TreeTrap"))
+        if (damagable is Collider2D collider2D && (collider2D.CompareTag("TreeTrap") || collider2D.CompareTag("TreeTrap2") || collider2D.CompareTag("TreeTrap3")))
         {
             damagable.TakeDamage(1);
         }

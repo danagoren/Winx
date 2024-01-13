@@ -54,9 +54,9 @@ public class SunPower : MonoBehaviour
 
     void OnParticleCollision(GameObject other)
     {
-        if (other.CompareTag("VoidTrap"))
+        if (other.CompareTag("VoidTrap") || other.CompareTag("VoidTrap2") || other.CompareTag("VoidTrap3") )
         {
-            ApplyDamageByTag("VoidTrap", 1);
+            ApplyDamageByTag(other.tag, 1);
             cameraShake.Shake();
 
         }
