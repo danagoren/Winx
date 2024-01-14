@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class PlayerStella : PlayableCharacter
@@ -14,6 +15,14 @@ public class PlayerStella : PlayableCharacter
     [SerializeField] GameObject stellaDialoIce;
     [SerializeField] GameObject stellaDialoMash;
     Animator animator;
+    public static bool isToggleable = true;
+
+    public async Task IsToggleable()
+    {
+        isToggleable = false;
+        await Task.Delay(10000);
+        isToggleable = true;
+    }
 
 
 
@@ -38,7 +47,7 @@ public class PlayerStella : PlayableCharacter
 
     void OnTriggerEnter2D(Collider2D other)
     {
-          if (other.gameObject.CompareTag("IceTrap") || other.gameObject.CompareTag("IceTrap2") || other.gameObject.CompareTag("IceTrap3") || other.gameObject.CompareTag("IceTrap4") || other.gameObject.CompareTag("IceTrap5"))
+        if (other.gameObject.CompareTag("IceTrap") || other.gameObject.CompareTag("IceTrap2") || other.gameObject.CompareTag("IceTrap3") || other.gameObject.CompareTag("IceTrap4") || other.gameObject.CompareTag("IceTrap5"))
         {
             TakeDamage(5);
             if (!isIced)
@@ -58,22 +67,20 @@ public class PlayerStella : PlayableCharacter
 
     IEnumerator ActivateIceDamage()
     {
+        IsToggleable();
         isIced = true;
         iceDamage.SetActive(true);
-
         sunPowerC.SetActive(false);
         stellaDialoIce.SetActive(true);
-
         yield return new WaitForSeconds(10f);
-
         sunPowerC.SetActive(true);
-
         iceDamage.SetActive(false);
         isIced = false;
     }
 
     IEnumerator ActivePoisonDamage()
     {
+        IsToggleable();
         isPoisond = true;
         poisonDamage.SetActive(true);
         sunPowerC.SetActive(false);

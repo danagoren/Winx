@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading.Tasks;
+
 
 public class PlayerFlora : PlayableCharacter
 {
@@ -17,6 +19,14 @@ public class PlayerFlora : PlayableCharacter
     [SerializeField] GameObject floraDialoIce;
     [SerializeField] GameObject floraDialoVoid;
     Animator animator;
+    public static bool isToggleable = true;
+
+    public async Task IsToggleable()
+    {
+        isToggleable = false;
+        await Task.Delay(10000);
+        isToggleable = true;
+    }
 
 
 
@@ -59,6 +69,7 @@ public class PlayerFlora : PlayableCharacter
 
     IEnumerator ActivateIceDamage()
     {
+        IsToggleable();
         isIced = true;
         iceDamage.SetActive(true);
         naturePowerC.SetActive(false);
@@ -75,6 +86,7 @@ public class PlayerFlora : PlayableCharacter
 
     IEnumerator ActiveVoidDamage()
     {
+        IsToggleable();
         isVoid = true;
         voidDamage.SetActive(true);
 

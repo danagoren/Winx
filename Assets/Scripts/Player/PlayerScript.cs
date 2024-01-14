@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
@@ -91,6 +92,10 @@ public class PlayerScript : MonoBehaviour
 
     void OnMouseDown()
     {
+        if (PlayerStella.isToggleable == false || PlayerBloom.isToggleable == false || PlayerFlora.isToggleable == false)
+        {
+            return;
+        }
         TogglePlayers();
     }
 }

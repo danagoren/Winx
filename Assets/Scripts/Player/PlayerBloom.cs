@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Threading.Tasks;
+
 
 public class PlayerBloom : PlayableCharacter
 {
@@ -18,6 +20,14 @@ public class PlayerBloom : PlayableCharacter
     private bool isPoisond = false;
     private bool isVoid = false;
     [SerializeField] GameObject firePowerC;
+    public static bool isToggleable = true;
+
+    public async Task IsToggleable()
+    {
+        isToggleable = false;
+        await Task.Delay(10000);
+        isToggleable = true;
+    }
 
 
 
@@ -58,6 +68,7 @@ public class PlayerBloom : PlayableCharacter
 
     IEnumerator ActivePoisonDamage()
     {
+        IsToggleable();
         isPoisond = true;
         poisonDamage.SetActive(true);
         firePowerC.SetActive(false);
@@ -71,13 +82,14 @@ public class PlayerBloom : PlayableCharacter
 
     IEnumerator ActiveVoidDamage()
     {
+        IsToggleable();
         isVoid = true;
         voidDamage.SetActive(true);
         firePowerC.SetActive(false);
         bloomDialoVoid.SetActive(true);
         yield return new WaitForSeconds(10f);
         firePowerC.SetActive(true);
-       voidDamage.SetActive(false);
+        voidDamage.SetActive(false);
         isVoid = false;
     }
 
