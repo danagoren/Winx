@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FirePower : MonoBehaviour
 {
-    [SerializeField] new private ParticleSystem particleSystem;
+    [SerializeField]  private ParticleSystem particleSystem;
     private PlayerBloom playerBloom;
     private CameraShake cameraShake;
 

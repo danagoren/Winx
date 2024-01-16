@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NaturePower : MonoBehaviour
 {
-    [SerializeField] new private ParticleSystem particleSystem;
+    [SerializeField]  private ParticleSystem particleSystem;
     private PlayerFlora playerFlora;
     private CameraShake cameraShake;
 

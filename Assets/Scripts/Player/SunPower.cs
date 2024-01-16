@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SunPower : MonoBehaviour
 {
-    [SerializeField] new private ParticleSystem particleSystem;
+    [SerializeField]  private ParticleSystem particleSystem;
     private PlayerStella playerStella;
     private CameraShake cameraShake;
 
