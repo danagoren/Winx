@@ -7,7 +7,9 @@ public class IceTrap3 : Trap
     private int trapHealth = 1;
     [SerializeField] GameObject icyDialo;
     private CameraShake cameraShake;
-   [SerializeField] AudioSource audioDeath;
+    [SerializeField] AudioSource audioDeath;
+    public ParticleSystem PS;
+
 
     protected override void Start()
     {
@@ -55,5 +57,6 @@ public class IceTrap3 : Trap
     {
         icyDialo.SetActive(false);
         Destroy(gameObject);
+        PS.Play();
     }
 }
